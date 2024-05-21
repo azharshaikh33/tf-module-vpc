@@ -43,7 +43,7 @@ resource "aws_route_table" "private_rt" {
   }
 }
 
-resource "aws_route_table_association" "public-rt-association" {
+resource "aws_route_table_association" "private-rt-association" {
   count          = length(aws_subnet.PRIVATE_SUBNET.*.id)
 
   subnet_id      = element(aws_subnet.PRIVATE_SUBNET.*.id, count.index)
